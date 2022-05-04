@@ -1,0 +1,10 @@
+mapping_filename=mapping_table
+init_read_pipename=user_cpu_state
+write_pipename=full_cpu_state
+start_fork_pc=0x74c4
+program_analysis=grep
+lib_name=libuClibc-0.9.28.so
+environ_offset=0x74c4
+feed_type=FEED_CMD
+id=3752
+opti=yes
