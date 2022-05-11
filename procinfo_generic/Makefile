@@ -21,7 +21,7 @@ default:
 	#$(MAKE) -C $(KDIR) SUBDIRS=$(PWD) modules
 	
 clean:
-	$(MAKE) -C $(KDIR) SUBDIRS=$(PWD) clean
+	#$(MAKE) -C $(KDIR) SUBDIRS=$(PWD) clean
 	rm -rf Module.markers modules.order Module.symvers
 
 #make ARCH=mips CROSS_COMPILE=/opt/cross/mipsel-linux-musl/bin/mipsel-linux-musl-

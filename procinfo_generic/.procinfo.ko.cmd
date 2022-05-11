@@ -1,0 +1,1 @@
+cmd_/home/yaowen/AGL_setup/procinfo_generic/procinfo.ko := /opt/cross/arm-linux-musleabi/bin/arm-linux-musleabi-ld -r  -EL  --build-id  -T ./scripts/module-common.lds -T ./arch/arm/kernel/module.lds -o /home/yaowen/AGL_setup/procinfo_generic/procinfo.ko /home/yaowen/AGL_setup/procinfo_generic/procinfo.o /home/yaowen/AGL_setup/procinfo_generic/procinfo.mod.o;  true
