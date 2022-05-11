@@ -26,5 +26,5 @@ clean:
 
 #make ARCH=mips CROSS_COMPILE=/opt/cross/mipsel-linux-musl/bin/mipsel-linux-musl-
 #make ARCH=arm CROSS_COMPILE=/opt/cross/arm-linux-musleabihf/bin/arm-linux-musleabihf-
-#make ARCH=arm CROSS_COMPILE=/opt/cross/arm-linux-musleabihf/bin/arm-linux-musl-
 #make ARCH=arm CROSS_COMPILE=/opt/cross/arm-linux-musleabi/bin/arm-linux-musleabi-
+#make ARCH=arm CROSS_COMPILE=/opt/cross/arm-linux-musleabi/bin/arm-linux-musleabi- zImage -j8
