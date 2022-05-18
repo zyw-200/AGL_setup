@@ -149,11 +149,27 @@ based on insmod result,
 proc_exec_connector use free_bprm value
 proc_exit_connector use do_task_dead from System.map
 
-./afl-fuzz-full -m none -t 800000+  -i ./inputs -o ./outputs_full  -QQ --  ./qemu-system-arm -device virtio-net-device,netdev=net0 -netdev tap,id=net0,ifname=tapAGL,script=no,downscript=no -drive id=disk0,file=agl-demo-platform-crosssdk-qemuarm-20211221145527.rootfs.ext4,if=none,format=raw -device virtio-blk-device,drive=disk0 -show-cursor  -device qemu-xhci -device usb-tablet -device usb-kbd -object rng-random,filename=/dev/urandom,id=rng0 -device virtio-rng-pci,rng=rng0  -nographic -M virt  -cpu cortex-a15 -m 2048  -device virtio-serial-device -chardev null,id=virtcon -device virtconsole,chardev=virtcon -kernel zImage--5.4.153+gitAUTOINC+9e3ab4e615_7a9ca83b48-r0.198-qemuarm-20211221145527.bin -append 'root=/dev/vda rw  console=ttyS1 console=ttyS0 mem=2048M ip=192.168.7.2::192.168.7.1:255.255.255.0 console=ttyAMA0 verbose vmalloc=256M '   -aflFile @@
+./afl-fuzz-full -m none -t 800000+  -i ./inputs -o ./outputs_full  -QQ --  ./qemu-system-arm-docker -device virtio-net-device,netdev=net0 -netdev tap,id=net0,ifname=tapAGL,script=no,downscript=no -drive id=disk0,file=agl-demo-platform-crosssdk-qemuarm-20211221145527.rootfs.ext4,if=none,format=raw -device virtio-blk-device,drive=disk0 -show-cursor  -device qemu-xhci -device usb-tablet -device usb-kbd -object rng-random,filename=/dev/urandom,id=rng0 -device virtio-rng-pci,rng=rng0  -nographic -M virt  -cpu cortex-a15 -m 2048  -device virtio-serial-device -chardev null,id=virtcon -device virtconsole,chardev=virtcon -kernel zImage--5.4.153+gitAUTOINC+9e3ab4e615_7a9ca83b48-r0.198-qemuarm-20211221145527.bin -append 'root=/dev/vda rw  console=ttyS1 console=ttyS0 mem=2048M ip=192.168.7.2::192.168.7.1:255.255.255.0 console=ttyAMA0 verbose vmalloc=256M '   -aflFile @@
 
 #############################################3
+docker run -it --env USER=root --privileged -it  --device=/dev/net/tun -v /home/yaowen/AGL_setup:/home/yaowen/AGL_setup ubuntu:18.04 /bin/bash
+docker run -it --env USER=root --privileged -it  --device=/dev/net/tun -v /home/yaowen/AGL_setup:/home/yaowen/AGL_setup zyw200/agl:0.1 /bin/bash
+
+docker run -it --env USER=root --privileged -it  --device=/dev/net/tun -v /home/yaowen/AGL_setup:/agl zyw200/agl:0.1 /bin/bash
 
 
+apt-get update
+
+docker run -it --env USER=root --privileged -it  --device=/dev/net/tun -v /home/yaowen/FirmAFL_2020/:/home/yaowen/FirmAFL_2020 ubuntu:18.04 /bin/bash
+docker run -it --env USER=root --privileged -it  --device=/dev/net/tun  ubuntu:18.04 /bin/bash
+
+apt-get install build-essential python pkg-config zlib1g-dev  libglib2.0-dev autoconf libtool flex bison binutils-dev libboost-all-dev
+
+
+
+
+
+#########################################33
 vim -b file
 :set noeol
 :wq
