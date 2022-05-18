@@ -155,7 +155,7 @@ proc_exit_connector use do_task_dead from System.map
 docker run -it --env USER=root --privileged -it  --device=/dev/net/tun -v /home/yaowen/AGL_setup:/home/yaowen/AGL_setup ubuntu:18.04 /bin/bash
 docker run -it --env USER=root --privileged -it  --device=/dev/net/tun -v /home/yaowen/AGL_setup:/home/yaowen/AGL_setup zyw200/agl:0.1 /bin/bash
 
-docker run -it --env USER=root --privileged -it  --device=/dev/net/tun -v /home/yaowen/AGL_setup:/agl zyw200/agl:0.1 /bin/bash
+docker run -it --env USER=root --privileged -it  --device=/dev/net/tun -v /home/yaowen/AGL_setup:/agl zyw200/agl:0.1 /bin/bash /agl/agl_start.sh
 
 
 apt-get update
