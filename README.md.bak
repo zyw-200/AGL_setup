@@ -30,13 +30,7 @@
 	Do not use Bitbake as root
 	# bitbake agl-demo-platform or bitbake agl-image-minimal
 	# source $AGL_TOP/qemuarm/agl-init-build-env
-
-	after that, you can use the command to start the full-system emulation of AGL.
-	# runqemu nographic serial 
-
-
-## download docker container for AGL
-	docker pull zyw200/agl
+	# runqemu nographic serial
 
 ## Trouble shooting
 
@@ -47,12 +41,19 @@
 	ERROR: To modify max_user_watches: sysctl -n -w fs.inotify.max_user_watches=<value>.
 	ERROR: Root privilege is required to modify max_user_watches.
 
-	sysctl -n -w fs.inotify.max_user_watches=819200
+	rm -r /var/lib/docker/containers/*
+	rm -r /var/lib/docker/image/*
+	rm -r /var/lib/docker/overlay2
+没有用，
 
-	2）Specific kernel and rootfs can be downloaded from following urls
+最后增大max_user_watches即可，原来是8192
+sysctl -n -w fs.inotify.max_user_watches=819200
 
-	https://download.automotivelinux.org/AGL/release/koi/11.0.5/qemuarm/deploy/images/qemuarm/zImage--5.4.153+gitAUTOINC+9e3ab4e615_7a9ca83b48-r0.198-qemuarm-20211221145527.bin
-	https://download.automotivelinux.org/AGL/release/koi/11.0.5/qemuarm/deploy/images/qemuarm/agl-demo-platform-crosssdk-qemuarm-20211221145527.rootfs.ext4.xz
+2）
+kernel and rootfs
+
+https://download.automotivelinux.org/AGL/release/koi/11.0.5/qemuarm/deploy/images/qemuarm/zImage--5.4.153+gitAUTOINC+9e3ab4e615_7a9ca83b48-r0.198-qemuarm-20211221145527.bin
+https://download.automotivelinux.org/AGL/release/koi/11.0.5/qemuarm/deploy/images/qemuarm/agl-demo-platform-crosssdk-qemuarm-20211221145527.rootfs.ext4.xz
 
 ###################
 
