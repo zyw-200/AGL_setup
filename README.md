@@ -84,6 +84,8 @@
 	modify the callbacktests_loadmainmodule_callback in cpu-exec.c
  	config_pc = code_start +  0x38e0; replace it with the address of main or start function
 
+ 	for compilation of QEMU, follow the instructions in Full_2022/README.md
+
 
 ## download docker container for AGL
 
